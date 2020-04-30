@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<!-- Title of the page -->
+	<head>
+	  <meta charset="utf-8" />
+	  <link rel="stylesheet" type="text/css" href="style.css">
+	  <title>Departures</title>
+	</head>
+
+	<body>	
+
+			<!-- Title of the page -->
+			
+		<header>
+		    <p><img  class="image" src="logo.jpg" alt="Airplane"/> CENTRAL AIRLINES </p>
+		</header>
+		
+		<div class="wrapper">
+			<nav>
+			  </br>
+			  </br>
+			  </br>
+			  <table style="list-style-type:none">
+					<tr>
+						<td><a href="employee.php">Employees</a></td>
+					</tr>
+					<tr>
+						<td><a href="pilot.php">Pilots</a></td>
+					</tr>
+					<tr>
+						<td><a href="flight_crew.php">Flight Crew</a></td>
+					</tr>
+					<tr>
+						<td><a href="airport.php">Airports</a></td>
+					</tr>
+					<tr>
+						<td><a href="aircraft.php">Aircrafts</a></td>
+					</tr>
+					<tr>
+						<td><a href="flight.php">Flights</a></td>
+					</tr>
+					<tr>
+						<td><a href="departure.php">Departures</a></td>
+					</tr>
+					<tr>
+						<td><a href="client.php">Clients</a></td>
+					</tr>
+					<tr>
+						<td><a href="order.php">Orders</a></td>
+					</tr>
+					<tr>
+						<td><a href="user_booking.php">(User) Booking</a></td>
+					</tr>
+					<tr>
+						<td><a href="user_client_registration.php">(User) Registration</a></td>
+					</tr>
+					<tr>
+						<td><a href="home.php">Log out</a></td>
+					</tr>
+			  </table>
+			</nav>
+
+			<article>
+			<!-- Title -->
+			</br>
+			<h1 class="tit"><strong>Departure Table</strong></h1>
+			
+			<!-- Insertion of new departures to table -->
+				<form action="departure.php" method="post">
+					<p><strong>Add a new departure in the database</strong></p>
+					<p>Flight number :
+					  <select name="flight_number">
+					  <!-- BEGIN flight_select -->
+						<option value={flight_select.number}>{flight_select.number}</option>
+					  <!-- END flight_select -->
+					  </select>
+					</p>
+
+					<p>Date : <input type="date" name="date" /></p>
+
+					<p>Pilot 1 :
+					  <select name="pilot_ssn_1">
+					  <!-- BEGIN pilot_select -->
+						<option value={pilot_select.ssn}>{pilot_select.ssn} - {pilot_select.first_name} {pilot_select.last_name}</option>
+					  <!-- END pilot_select -->
+					  </select>
+					</p>
+
+					<p>Pilot 2 :
+					  <select name="pilot_ssn_2">
+					  <!-- BEGIN pilot_select -->
+						<option value={pilot_select.ssn}>{pilot_select.ssn} - {pilot_select.first_name} {pilot_select.last_name}</option>
+					  <!-- END pilot_select -->
+					  </select>
+					</p>
+
+					<p>Flight Crew 1 :
+					  <select name="flight_crew_ssn_1">
+					  <!-- BEGIN flight_crew_select -->
+						<option value={flight_crew_select.ssn}>{flight_crew_select.ssn} - {flight_crew_select.first_name} {flight_crew_select.last_name}</option>
+					  <!-- END flight_crew_select -->
+					  </select>
+					</p>
+
+					<p>Flight Crew 2 :
+					  <select name="flight_crew_ssn_2">
+					  <!-- BEGIN flight_crew_select -->
+						<option value={flight_crew_select.ssn}>{flight_crew_select.ssn} - {flight_crew_select.first_name} {flight_crew_select.last_name}</option>
+					  <!-- END flight_crew_select -->
+					  </select>
+					</p>
+					
+					<p>Total number of seats in the plane : <input type="number" name="number_seats" /></p>
+
+					<p><input type="submit" value="Submit" /></p>
+				</form>
+				
+				<!-- Message for action delete or add -->
+				 <p class ="info_status">
+					{message_status}
+				 </p>
+				
+				<p><strong> These are the departures that are already in the database:</strong></p>
+				<p>(You cannot delete a departure once it is booked)</p>
+								<!-- Data Table -->
+				<table class="tab">
+				  <tr>
+				    <th>Flight Number</th>
+				    <th>Date</th>
+				    <th>Pilot 1</th>
+				    <th>Pilot 2</th>
+				    <th>Flight Crew 1</th>
+				    <th>Flight Crew 2</th>
+				    <th>Number of Free Seats</th>
+				    <th>Number of Occupied Seats</th>
+				    <th>Delete</th>
+				  </tr>
+				  <!-- BEGIN departure -->
+				  <tr>
+				    <td>{departure.flight_number}</td>
+				    <td>{departure.date}</td>
+				    <td>{departure.pilot_1}</td>
+				    <td>{departure.pilot_2}</td>
+				    <td>{departure.flight_crew_1}</td>
+				    <td>{departure.flight_crew_2}</td>
+				    <td>{departure.number_of_free_seats}</td>
+				    <td>{departure.number_seats}</td>
+				    <td><a href="departure.php?action=delete&flight_number={departure.flight_number}">Delete</a></td>
+				  </tr>
+				  <!-- END departure -->
+				</table>
+											
+			</article>
+
+	</body>
+</html>

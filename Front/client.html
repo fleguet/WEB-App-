@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<!-- Title of the page -->
+	<head>
+	  <meta charset="utf-8" />
+	  <link rel="stylesheet" type="text/css" href="style1.css">
+	  <title>Clients</title>
+	 
+	</head>
+
+	<body>	
+
+			<!-- Title of the page -->
+			
+		<header>
+		    <p><img  class="image" src="logo.jpg" alt="Airplane"/> CENTRAL AIRLINES </p>
+		</header>
+			
+		<article>
+			<!-- Title -->
+			</br>
+			<h1 class="tit"><strong>Client Table</strong></h1>
+
+
+				
+			  
+			<!-- Insertion of new clients to table -->
+			<form action="client.php" method="post">
+				<p><strong>Add a new client in the database</strong></p>
+				<p>First Name : <input type="text" name="first_name" /></p>
+				<p>Last Name : <input type="text" name="last_name" /></p>
+				<p>Address : <input type="text" name="address" /></p>
+				<p><input type="submit" value="Submit" /></p>
+			</form>
+
+									<!-- Message for action delete or add -->
+			 <p class ="info_status">
+				{message_status}
+			 </p>
+		
+			<p><strong> These are the clients that are already in the database:</p></strong>
+			
+
+			<!-- Data Table -->
+			<table class="tab">
+			  <tr>
+			    <th>id</th>
+			    <th>First name</th>
+			    <th>Last name</th>
+			    <th>Address</th>
+			    <th>Delete</th>
+			  </tr>
+			  <!-- BEGIN client -->
+			  <tr>
+			    <td>{client.id}</td>
+			    <td>{client.first_name}</td>
+			    <td>{client.last_name}</td>
+			    <td>{client.address}</td>
+			    <td><a href="client.php?action=delete&id={client.id}">Delete</a></td>
+			  </tr>
+			  <!-- END client -->
+			</table>
+			
+
+				
+		</article>
+		<!-- Menu bar -->
+		<nav>
+		  <table style="list-style-type:none">
+				<tr>
+					<td><a href="employee.php">Employees</a></td>
+				</tr>
+				<tr>
+					<td><a href="pilot.php">Pilots</a></td>
+				</tr>
+				<tr>
+					<td><a href="flight_crew.php">Flight Crew</a></td>
+				</tr>
+				<tr>
+					<td><a href="airport.php">Airports</a></td>
+				</tr>
+				<tr>
+					<td><a href="aircraft.php">Aircrafts</a></td>
+				</tr>
+				<tr>
+					<td><a href="flight.php">Flights</a></td>
+				</tr>
+				<tr>
+					<td><a href="departure.php">Departures</a></td>
+				</tr>
+				<tr>
+					<td><a href="client.php">Clients</a></td>
+				</tr>
+				<tr>
+					<td><a href="order.php">Orders</a></td>
+				</tr>
+				<tr>
+					<td><a href="user_booking.php">(User) Booking</a></td>
+				</tr>
+				<tr>
+					<td><a href="user_client_registration.php">(User) Registration</a></td>
+				</tr>
+				<tr>
+					<td><a href="home.php">Log out</a></td>
+				</tr>
+		  </table>
+		</nav>
+		
+		
+	</body>
+</html>

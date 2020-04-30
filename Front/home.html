@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<!-- Title of the page -->
+	<head>
+	  <meta charset="utf-8" />
+	  <link rel="stylesheet" type="text/css" href="style1.css">
+	  <title>Home</title>
+	 
+	</head>
+
+	<body>	
+
+			<!-- Title of the page -->
+			
+		<header>
+		    <p><img  class="image" src="logo.jpg" alt="Airplane"/> CENTRAL AIRLINES </p>
+		</header>
+
+		<article>
+			<!-- Title -->
+			</br>
+			<h1 class="tit"><strong>Welcome to Central Airlines' authentification page</strong></h1>
+			
+			<form action="home.php" method="post">
+				<p><strong>Sign In:</strong></p>
+				<p>Identifiant : <input type="text" name="identifiant" /></p>
+				<p>Password: <input type="password" name="password" /></p>
+				<p><input type="submit" value="Submit" /></p>
+			</form>
+			
+			<!-- Message for action delete or add -->
+			 <p class ="info_status">
+				{message_status}
+			 </p>
+				
+		</article>
+				
+		
+
+		<footer>
+		  <p>info@centralairlines.com</p>
+		</footer>
+
+	</body>
+</html>
